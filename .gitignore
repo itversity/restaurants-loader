@@ -1,4 +1,4 @@
 /rl-venv/
 .idea
-/.ipython_checkpoints/
+.ipynb_checkpoints
 .DS_Store
