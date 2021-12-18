@@ -58,3 +58,13 @@ http://127.0.0.1:8888/lab?token=951a079c387d80c9e6182bfcda00ddb8a95d0d2e2c7052a2
 ## Accessing Notebooks
 
 Once you are in the Jupyter Lab environment, you should be able to see the notebooks
+
+## Accessing Mongodb
+
+One can connect to Mongo CLI as part of the docker container using this command.
+
+```shell
+docker compose exec restmongo mongo
+```
+
+* Once in Mongo CLI, one can run all standard mongo commands.
