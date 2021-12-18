@@ -1,0 +1,3 @@
+CREATE DATABASE restdb;
+CREATE USER restuser WITH ENCRYPTED PASSWORD 'itversity';
+GRANT ALL ON DATABASE restdb TO restuser;

@@ -1,0 +1,36 @@
+services:
+  restlab:
+    build:
+      context: .
+      dockerfile: images/pythonsql/Dockerfile
+    hostname: restlab
+    ports:
+      - "8888:8888"
+    volumes:
+      - "./notebooks:/home/itversity/notebooks"
+      - "./data:/data"
+    environment:
+      SHELL: /bin/bash
+    networks:
+      - restlabnw
+  restpg:
+    image: postgres:13
+    ports:
+      - "5632:5432"
+    networks:
+      - restlabnw
+    volumes:
+      - ./scripts/restpg:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_PASSWORD: itversity
+  restmongo:
+    image: mongo
+    restart: always
+    networks:
+      - restlabnw
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rest_user
+      MONGO_INITDB_ROOT_PASSWORD: itversity
+networks:
+  restlabnw:
+    name: restlabnw
